@@ -10,6 +10,10 @@ class calcTest(TestCase):
         self.assertEqual(calc('8-7'), 1)
     def test_dev(self):
         self.assertEqual(calc('4/4'), 1)
+    def test_dev_null(self):
+        with self.assertRaises(ValueError) as e:
+            calc('4/0')
+        self.assertEqual("На ноль делить нельзя!", e.exception.args[0])
     def test_no_sign(self):
         with self.assertRaises(ValueError) as e:
             calc('434')

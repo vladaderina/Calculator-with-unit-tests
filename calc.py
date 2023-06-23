@@ -7,15 +7,22 @@ def calc(expression):
     try:
         first, second = expression.split(sign)
         first, second = int(first), int(second)
-        dict = {
-            '+': lambda a, b: a + b,
-            '-': lambda a, b: a - b,
-            '/': lambda a, b: a / b,
-            '*': lambda a, b: a * b
-        }
-        return dict[sign](first, second)
+        match sign:
+            case '+':
+                return first + second
+            case '-':
+                return first - second
+            case '*':
+                return first * second
+            case '/':
+                if second == 0:
+                    raise ValueError('На ноль делить нельзя!')
+                else:
+                    return first / second
     except (ValueError, TypeError):
         raise ValueError("Выражение должно содержать только 2 целых числа и 1 знак")
 
+
+exeption = input('Введи выражение вида a ? b, на месте ? стоит любой оперэнд\n')
 if __name__ == '__main__':
-    print(calc("2+4"))
+    print(calc(exeption))
