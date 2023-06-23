@@ -7,6 +7,8 @@ def calc(expression):
     try:
         first, second = expression.split(sign)
         first, second = int(first), int(second)
+        if second == 0:
+            raise ZeroDivisionError("На ноль делить нельзя!")
         match sign :
             case("+"):
                 return first + second
