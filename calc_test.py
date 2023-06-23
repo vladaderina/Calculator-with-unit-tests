@@ -30,5 +30,9 @@ class calcTest(TestCase):
         with self.assertRaises(ValueError) as e:
             calc('a+b')
         self.assertEqual("Выражение должно содержать только 2 целых числа и 1 знак", e.exception.args[0])
+    def test_zero_division(self):
+        with self.assertRaises(zeroDivisionError)
+            calc('3/0')
+        self.asserEqual("Выражение не должно делиться на 0!", e.exception.args[0])
 if __name__ == '__main__':
     main()
