@@ -7,13 +7,15 @@ def calc(expression):
     try:
         first, second = expression.split(sign)
         first, second = int(first), int(second)
-        dict = {
-            '+': lambda a, b: a + b,
-            '-': lambda a, b: a - b,
-            '/': lambda a, b: a / b,
-            '*': lambda a, b: a * b
-        }
-        return dict[sign](first, second)
+        match sign:
+            case("+"):
+                return first + second
+            case ("-"):
+                return first - second
+            case("/"):
+                return first / second
+            case("*"):
+                return first * second
     except (ValueError, TypeError):
         raise ValueError("Выражение должно содержать только 2 целых числа и 1 знак")
 
