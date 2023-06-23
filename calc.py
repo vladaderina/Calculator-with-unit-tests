@@ -15,7 +15,9 @@ def calc(expression):
         if sign=="*":
                 return first*second
         if sign=="/":
-                return first/second
+            if second==0:
+                raise ZeroDivisionError('На ноль делить нельзя')
+            return first/second
         
         # dict = {
         #     '+': lambda a, b: a + b,
